@@ -30,4 +30,4 @@ aer.modelo,
 aer.modelo,
 aer.codigo_cauda
 from voo vo
-join aeronaves aer on aer.id + vo.aeronaveìd;
+join aeronaves aer on aer.id + vo.aeronaveid;
