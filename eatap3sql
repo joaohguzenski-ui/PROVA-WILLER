@@ -1,0 +1,21 @@
+UPDATE passageiros_id
+
+
+SELECT
+p.classe,
+sum()
+from passagens p
+group by p.classe
+
+
+SELECT 
+    c.id AS consulta_id,
+    c.data_hora,
+    m.nome AS medico,
+    e.nome AS especialidade,
+    c.status
+FROM aeronaves c
+JOIN voos p ON c.paciente_id = p.id
+JOIN passageiros m ON c.medico_id = m.id
+JOIN especialidades e ON m.especialidade_id = e.id
+WHERE p.nome = 'Carlos Silva';
