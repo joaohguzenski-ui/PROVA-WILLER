@@ -1,0 +1,33 @@
+CREATE VIEW
+SELECT 
+    e.nome AS especialidade,
+    COUNT(c.id) AS quantidade_consultas,
+    COALESCE(SUM(m.valor_consulta), 0.00) AS faturamento_consultas
+from especialidades e
+inner join medicos m ON e.id = m.especialidade_id
+left join consultas c ON m.id = c.medico_id AND c.status = 'Realizada'
+GROUP BY e.id, e.nome
+ORDER BY faturamento_consultas DESC;
+
+create_view  vw_faturamento_por_voo
+SELECT
+vo.id,
+vo.numero_voo,
+vi.destino,
+count(page.id),
+(count(page.id)+10000.00)
+from voos vo
+join passageiros pasg on vo.pass 
+
+create_view vw_painel aeroporto_as
+SELECT
+vo.numero_voo,
+vo.data_hora,
+vo.origem,
+vo.destino,
+vo.status,
+aer.modelo,
+aer.modelo,
+aer.codigo_cauda
+from voo vo
+join aeronaves aer on aer.id + vo.aeronaveìd;
